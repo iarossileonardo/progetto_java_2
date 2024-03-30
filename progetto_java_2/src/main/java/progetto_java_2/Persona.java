@@ -4,7 +4,7 @@ public class Persona extends Thread{
 
     @Override
     public void run() {
-        
+        Toilette t1 = new Toilette();
     }
     
 }
