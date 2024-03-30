@@ -7,15 +7,24 @@ public class Persona extends Thread{
     
 
     public Persona(Toilette t, String nome) {
+        super(nome);
         this.t = t;
-        this.nome = nome;
     }
 
 
 
     @Override
     public void run() {
-        //TODO
+        try {
+            this.t.getS().acquire(); //"Aquisisco" il semaforo, bloccando l'accesso agli altri Thread, che saranno in attesa"
+            int tempo = t.entra(this); //Faccio entrare una persona (thread) in bagno (risorsa) e salvo il tempo occupato
+            System.out.println(this.getName() + " occupa il bagno per: " + tempo + "s");
+            Thread.sleep(tempo); //blocco il thread per il tempo occupato
+            t.esce(); //La persona esce dal bagno
+            this.t.getS().release(); //"Rilascio il semaforo, liberando l'accesso alla risorsa per gli altri Thread"
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
     
 }
