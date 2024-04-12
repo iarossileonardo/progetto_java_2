@@ -7,7 +7,7 @@ public class Toilette {
     public synchronized int entra(Persona p) throws InterruptedException {
         String persona = p.getName(); // salvo il nome della persona (thread) che ha occupato il bagno (risorsa)
         try {
-            while ((!disp) || (((!p.getName().equals("Sandra")) && (!p.getName().equals("Sara"))) && (contaDonne > 0))) {
+            while ((!disp) || (((!p.isDonna()) && (contaDonne > 0)))) {
                 System.out.println(persona + " sta aspettando, priorità: " + p.getPriority() + "...");
                 wait();
             }

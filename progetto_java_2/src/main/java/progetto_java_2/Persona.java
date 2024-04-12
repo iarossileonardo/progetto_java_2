@@ -2,16 +2,13 @@ package progetto_java_2;
 
 public class Persona extends Thread{
     private Toilette t;
+    private boolean donna;
 
     
 
-    public Persona(Toilette t, String nome) {
+    public Persona(Toilette t, String nome, boolean donna) {
         super(nome);
-        if((nome.equals("Sandra")) || (nome.equals("Sara"))){
-            this.setPriority(MAX_PRIORITY);
-        }
-        else
-            this.setPriority(MIN_PRIORITY);
+        this.donna = donna;
         this.t = t;
     }
 
@@ -28,5 +25,13 @@ public class Persona extends Thread{
             e.printStackTrace();
         }
     }
+
+
+
+    public boolean isDonna() {
+        return donna;
+    }
+
+    
     
 }

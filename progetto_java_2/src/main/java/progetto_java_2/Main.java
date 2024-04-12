@@ -12,9 +12,11 @@ public class Main {
         Persona[] persone = new Persona[5];
 
         //riempio l'array di oggetti persona
-        for(int i = 0; i < 5; i++){
-            persone[i] = new Persona(t, nomi[i]);
-        }
+        persone[0] = new Persona(t, nomi[0], false);
+        persone[1] = new Persona(t, nomi[1], true);
+        persone[2] = new Persona(t, nomi[2], false);
+        persone[3] = new Persona(t, nomi[3], false);
+        persone[4] = new Persona(t, nomi[4], true);
 
         for(int i = 0; i < 5; i++){
             persone[i].start();
