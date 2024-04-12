@@ -2,10 +2,11 @@ package progetto_java_2;
 
 public class Toilette {
     private boolean disp = true;
-    int contaDonne = 2;
+    int contaDonne = 0;
 
     public synchronized int entra(Persona p) throws InterruptedException {
         String persona = p.getName(); // salvo il nome della persona (thread) che ha occupato il bagno (risorsa)
+        if(p.isDonna()) contaDonne++;
         try {
             while ((!disp) || (((!p.isDonna()) && (contaDonne > 0)))) {
                 System.out.println(persona + " sta aspettando, priorità: " + p.getPriority() + "...");
