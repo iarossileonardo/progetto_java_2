@@ -10,7 +10,7 @@ public class Toilette {
         if(p.isDonna()) contaDonne++;
         try {
             while ((!disp) || (((!p.isDonna()) && (contaDonne > 0) && (donneEntrate < 3)))) {
-                System.out.println(persona + " sta aspettando, priorità: " + p.getPriority() + "...");
+                System.out.println(persona + " sta aspettando...");
                 wait();
             }
         } catch (InterruptedException e) {}
